@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include <time.h>
+#include <math.h>
 
 
 int main ( int argc, char** argv ) {
@@ -13,15 +14,25 @@ int main ( int argc, char** argv ) {
 
         int nombreCoups = 0;
 
-        const int MAX = 100, MIN = 1;
+        const MIN = 1;
 
+        int niveau, nombreMax;
 
+        // Demande de niveau, generation du nombreMax
+
+        do {
+
+            printf("Quel niveau choisissez-vous ? 1, 2 ou 3 : \n");
+
+            scanf("%d", &niveau);
+        } while(niveau < 1 || niveau > 3 );
+        nombreMax = pow(10, niveau + 1);
         // Génération du nombre aléatoire
 
 
         srand(time(NULL));
 
-        nombreMystere = (rand() % (MAX - MIN + 1)) + MIN;
+        nombreMystere = (rand() % (nombreMax - MIN + 1)) + MIN;
 
 
         /* La boucle du programme. Elle se répète tant que l'utilisateur n'a pas trouvé le nombre mystère */
